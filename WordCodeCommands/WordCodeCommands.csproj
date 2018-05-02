@@ -159,6 +159,7 @@
     can be found.
   -->
   <ItemGroup>
+    <Compile Include="Config.cs" />
     <Compile Include="DocumentActions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

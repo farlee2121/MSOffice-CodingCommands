@@ -17,20 +17,17 @@ namespace WordCodeCommands
         IKeyboardMouseEvents keyboardHook;
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
-            
-            DocumentActions documentActions = new DocumentActions();
+            IWordCommandsConfig wordCommandsConfig = new WordCommandsConfig();
+            DocumentActions documentActions = new DocumentActions(wordCommandsConfig);
             Dictionary<Combination, System.Action> bindings = new Dictionary<Combination, System.Action>()
             {
                 {
-                    Combination.TriggeredBy(System.Windows.Forms.Keys.Divide)
-                    .With(System.Windows.Forms.Keys.Control),
+                    wordCommandsConfig.CommentKeyBinding(),
                     // how do I want to handle ab
                     () =>{documentActions.CommentLine(GetCurrentRange(Application)); }
                 },
                 {
-                    Combination.TriggeredBy(System.Windows.Forms.Keys.Divide)
-                    .With(System.Windows.Forms.Keys.Shift)
-                    .With(System.Windows.Forms.Keys.Control),
+                    wordCommandsConfig.UncommentKeyBinding(),
                     () =>{documentActions.UncommentLine(GetCurrentRange(Application)); }
                 },
             };

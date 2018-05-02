@@ -10,8 +10,16 @@ namespace WordCodeCommands
 {
     class DocumentActions
     {
-        const string CommentStart = "<--";
-        const string CommentEnd = "-->";
+        readonly string CommentStart;
+        readonly string CommentEnd;
+        private readonly IWordCommandsConfig config;
+
+        public DocumentActions(IWordCommandsConfig config)
+        {
+            this.config = config;
+            CommentStart = config.CommentStartMarker();
+            CommentEnd = config.CommentEndMarker();
+        }
 
         public void CommentLine(Range range)
         {
