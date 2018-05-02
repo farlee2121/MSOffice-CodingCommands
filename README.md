@@ -1,5 +1,5 @@
 # MSOffice-CodingCommands
-Add common coding commenting or swap lines to office programs.  
+Add common coding commands, such as commenting or swap lines, to office programs.  
 
 Currently only supports Word. 
 
