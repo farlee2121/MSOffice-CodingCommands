@@ -1,4 +1,5 @@
 ﻿using Gma.System.MouseKeyHook;
+using Microsoft.Office.Interop.Word;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace WordCodeCommands
     {
         string CommentStartMarker();
         string CommentEndMarker();
+        WdColor CommentColor();
         Combination CommentKeyBinding();
         Combination UncommentKeyBinding();
     }
@@ -24,6 +26,11 @@ namespace WordCodeCommands
         public string CommentEndMarker()
         {
             return "-->";
+        }
+
+        public WdColor CommentColor()
+        {
+            return WdColor.wdColorGreen;
         }
 
         // Can I make this clearly extensible for custom actions?

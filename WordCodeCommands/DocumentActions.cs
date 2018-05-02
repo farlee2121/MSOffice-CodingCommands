@@ -26,8 +26,9 @@ namespace WordCodeCommands
             //https://social.msdn.microsoft.com/Forums/vstudio/en-US/f87bf140-932e-4de0-ac6c-b30ec06534e4/get-cursor-position-in-current-line-and-get-current-paragraph?forum=vsto
             
             string trailingWhitespace = GetTrailingWhitespace(range.Text);
-
+            
             range.Text = string.Format($"{CommentStart}{range.Text.Trim()}{CommentEnd}{trailingWhitespace}");
+            range.Font.Color = config.CommentColor();
         }
 
         private string GetTrailingWhitespace(string text)
@@ -56,6 +57,10 @@ namespace WordCodeCommands
                 int commentEndIndex = range.Text.LastIndexOf(CommentEnd);
                 range.Text = range.Text.Remove(commentEndIndex, CommentEnd.Length);
             }
+
+            //QUESTION: how can I reliably return to the previous color?
+            range.Font.Color = WdColor.wdColorAutomatic;
         }
+        
     }
 }
