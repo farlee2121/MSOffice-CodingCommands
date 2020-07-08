@@ -1,3 +1,7 @@
+# Abandoned
+Markdown has risen in popularity and the editors (especially vs code plugins) are good enough that it makes more sense to use markdown for development documents than office.
+
+
 # MSOffice-CodingCommands
 Add common coding commands, such as commenting or swap lines, to office programs.  
 
